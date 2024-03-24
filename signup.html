@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <style>
+      /* Basic styling */
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-image: url("R.jpg");
+        background-size: cover; /* Cover the entire viewport */
+        background-position: center; /* Center the background image */
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 400px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      input[type="submit"] {
+        background-color: #459aa0;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #459aa0;
+      }
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Sign Up</h2>
+      <form
+        id="signupForm"
+        action="login.html"
+        method="post"
+        onsubmit="return validateForm()"
+      >
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Username"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Password"
+          required
+        />
+        <input type="submit" value="Sign Up" />
+      </form>
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+
+    <script>
+      function validateForm() {
+        var username = document.getElementById("username").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var error = document.getElementById("error");
+
+        if (username.trim() == "") {
+          alert("Username must be filled out");
+          return false;
+        }
+
+        if (email.trim() == "") {
+          alert("Email must be filled out");
+          return false;
+        } else if (!validateEmail(email)) {
+          alert("Invalid email format");
+          return false;
+        }
+
+        if (password.trim() == "" || password.length < 6) {
+          alert("Password must be at least 6 characters long");
+          return false;
+        }
+
+        return true;
+      }
+
+      function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+      }
+    </script>
+  </body>
+</html>

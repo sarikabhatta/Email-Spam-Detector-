@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Center Aligned Text Box and File Chooser</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .content-container {
+            width: 300px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        input[type="text"],
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="text"]:focus,
+        input[type="file"]:focus {
+            border-color: #4caf50;
+            outline: none;
+        }
+        input[type="text"]::placeholder,
+        input[type="file"]::placeholder {
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content-container">
+    <h2>For single mail:</h2>
+    <input type="text" id="textBox" placeholder="Paste mail text">
+
+    <h2>For multiple mails:</h2>
+    <input type="file" id="fileChooser" accept=".txt, .pdf">
+</div>
+
+</body>
+</html>
